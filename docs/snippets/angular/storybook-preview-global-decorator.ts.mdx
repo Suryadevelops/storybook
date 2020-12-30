@@ -1,16 +1,7 @@
 ```js
 // .storybook/preview.js
 
-// Note: To see the global decorator applied to your stories you'll need to include the template key with the component's selector with each story you have.
+import { templateDecorator } from '@storybook/angular';
 
-export const decorators = [
-  (storyFunc) => {
-    const story = storyFunc();
-
-    return {
-      ...story,
-      template: `<div style="margin: 3em">${story.template}</div>`,
-    };
-  },
-];
+export const decorators = [templateDecorator((story) => `<div style="margin: 3em">${story}</div>`)];
 ```
